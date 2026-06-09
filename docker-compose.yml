@@ -35,6 +35,7 @@ services:
       DB_PORT: 3306
       DB_PREFIX: ps_
       PS_DOMAIN: localhost:8080
+      PS_HANDLE_DYNAMIC_DOMAIN: 1
       PS_FOLDER_ADMIN: admin
       PS_FOLDER_INSTALL: install
       PS_LANGUAGE: en
