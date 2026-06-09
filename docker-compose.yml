@@ -1,0 +1,53 @@
+version: "3.8"
+
+services:
+  mysql-presta:
+    image: mysql:8.0
+    container_name: mysql-presta
+    restart: unless-stopped
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: prestashop
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  prestashop:
+    image: prestashop/prestashop:latest
+    container_name: prestashop
+    restart: unless-stopped
+    depends_on:
+      mysql-presta:
+        condition: service_healthy
+    ports:
+      - "8080:80"
+    environment:
+      DB_SERVER: mysql-presta
+      DB_USER: root
+      DB_PASSWD: ""
+      DB_NAME: prestashop
+      DB_PORT: 3306
+      DB_PREFIX: ps_
+      PS_DOMAIN: localhost:8080
+      PS_FOLDER_ADMIN: admin
+      PS_FOLDER_INSTALL: install
+      PS_LANGUAGE: en
+      PS_COUNTRY: GB
+      PS_INSTALL_AUTO: 0
+      PS_ERASE_DB: 0
+      PS_INSTALL_DB: 0
+      PS_DEV_MODE: 0
+      ADMIN_MAIL: demo@prestashop.com
+      ADMIN_PASSWD: "changeme123"
+    volumes:
+      - prestashop_data:/var/www/html
+
+volumes:
+  mysql_data:
+  prestashop_data:
