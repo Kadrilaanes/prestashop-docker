@@ -40,7 +40,7 @@ services:
       PS_FOLDER_INSTALL: install
       PS_LANGUAGE: en
       PS_COUNTRY: GB
-      PS_INSTALL_AUTO: 0
+      PS_INSTALL_AUTO: 1
       PS_ERASE_DB: 0
       PS_INSTALL_DB: 0
       PS_DEV_MODE: 0
