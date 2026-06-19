@@ -48,6 +48,7 @@ services:
       ADMIN_PASSWD: "changeme123"
     volumes:
       - prestashop_data:/var/www/html
+      - ./themes/classic/assets/css/custom.css:/var/www/html/themes/classic/assets/css/custom.css:ro
 
 volumes:
   mysql_data:

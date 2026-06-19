@@ -1,0 +1,315 @@
+/* ============================================================
+   Little Merlins — Pastel Natural Theme
+   Override CSS for the PrestaShop "Classic" theme.
+   Loaded automatically as themes/classic/assets/css/custom.css
+   Inspiration: Fjällräven · Moulin/Moalie · Under the Nile · Bears for Humanity
+   Palette: warm cream/sand, soft sage, dusty rose, sky blue, muted brown.
+   ============================================================ */
+
+:root {
+  --lm-cream:       #FAF6EF;  /* page background */
+  --lm-sand:        #F2E9DC;  /* soft surfaces, cards */
+  --lm-sage:        #A7C2A3;  /* primary — soft sage green */
+  --lm-sage-deep:   #7FA37A;  /* primary hover / darker sage */
+  --lm-rose:        #E7C7C2;  /* dusty rose accent */
+  --lm-rose-deep:   #D7A8A1;
+  --lm-sky:         #Bcd6E0;  /* sky blue accent */
+  --lm-brown:       #6B5A4E;  /* body text — warm muted brown */
+  --lm-brown-deep:  #4A3F37;  /* headings */
+  --lm-cocoa:       #8C7A6B;  /* muted secondary text */
+  --lm-line:        #E6DCCB;  /* hairlines / borders */
+  --lm-radius:      16px;
+  --lm-radius-sm:   10px;
+  --lm-shadow:      0 6px 24px rgba(107, 90, 78, 0.10);
+  --lm-shadow-sm:   0 2px 10px rgba(107, 90, 78, 0.08);
+}
+
+/* ---------- Base ---------- */
+body {
+  background-color: var(--lm-cream);
+  color: var(--lm-brown);
+  font-family: "Nunito Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#wrapper,
+.page-content,
+#main {
+  background-color: transparent;
+}
+
+a {
+  color: var(--lm-sage-deep);
+}
+a:hover,
+a:focus {
+  color: var(--lm-rose-deep);
+}
+
+/* ---------- Typography ---------- */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4,
+.page-heading,
+.product-title,
+.products-section-title,
+.featured-products .products-section-title {
+  font-family: "Quicksand", "Nunito Sans", system-ui, sans-serif;
+  color: var(--lm-brown-deep);
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.products-section-title,
+.featured-products .products-section-title {
+  text-align: center;
+  position: relative;
+  padding-bottom: 14px;
+  margin-bottom: 32px;
+  text-transform: none;
+}
+.products-section-title::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 3px;
+  background: var(--lm-rose);
+  border-radius: 3px;
+  margin: 14px auto 0;
+}
+
+/* ---------- Header ---------- */
+.header-top {
+  background-color: var(--lm-cream);
+  box-shadow: var(--lm-shadow-sm);
+}
+#_desktop_top_menu .top-menu,
+.header-top a {
+  color: var(--lm-brown);
+}
+#header .header-nav {
+  background-color: var(--lm-sand);
+  border-bottom: 1px solid var(--lm-line);
+}
+.header-top .menu > ul > li > a:hover {
+  color: var(--lm-sage-deep);
+}
+#search_widget form input[type=text] {
+  background: #fff;
+  border: 1px solid var(--lm-line);
+  border-radius: 999px;
+  padding-left: 16px;
+}
+#search_widget form button[type=submit] .search {
+  color: var(--lm-sage-deep);
+}
+
+/* Main menu */
+.menu-top-link,
+#top-menu a.dropdown-item,
+.top-menu a {
+  color: var(--lm-brown) !important;
+}
+.top-menu .sub-menu {
+  border-top: 3px solid var(--lm-sage);
+  border-radius: 0 0 var(--lm-radius-sm) var(--lm-radius-sm);
+}
+
+/* ---------- Buttons ---------- */
+.btn-primary,
+.btn-secondary.add-to-cart,
+button.btn-primary,
+.add-to-cart {
+  background-color: var(--lm-sage);
+  border-color: var(--lm-sage);
+  color: #fff;
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  box-shadow: var(--lm-shadow-sm);
+  transition: background-color .2s ease, transform .1s ease;
+}
+.btn-primary:hover,
+.btn-secondary.add-to-cart:hover,
+button.btn-primary:hover,
+.add-to-cart:hover {
+  background-color: var(--lm-sage-deep);
+  border-color: var(--lm-sage-deep);
+  transform: translateY(-1px);
+}
+.btn-primary:active { transform: translateY(0); }
+
+.btn-secondary,
+.btn-outline-primary {
+  border-radius: 999px;
+  border-color: var(--lm-rose-deep);
+  color: var(--lm-brown-deep);
+  background: transparent;
+}
+.btn-secondary:hover,
+.btn-outline-primary:hover {
+  background-color: var(--lm-rose);
+  border-color: var(--lm-rose);
+  color: var(--lm-brown-deep);
+}
+
+/* ---------- Product cards ---------- */
+.product-miniature .thumbnail-container,
+.js-product-miniature .thumbnail-container {
+  background: #fff;
+  border: 1px solid var(--lm-line);
+  border-radius: var(--lm-radius);
+  box-shadow: var(--lm-shadow-sm);
+  overflow: hidden;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.product-miniature .thumbnail-container:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--lm-shadow);
+}
+.product-miniature img {
+  border-radius: var(--lm-radius) var(--lm-radius) 0 0;
+}
+.product-title a {
+  color: var(--lm-brown-deep);
+  font-weight: 700;
+}
+.product-price-and-shipping .price,
+.product-price,
+.current-price span {
+  color: var(--lm-sage-deep);
+  font-weight: 800;
+}
+
+/* product flags (New / Online only) */
+.product-flag {
+  background: var(--lm-rose);
+  color: var(--lm-brown-deep);
+  border-radius: 999px;
+  font-weight: 700;
+  text-transform: none;
+  box-shadow: none;
+}
+.product-flag.new { background: var(--lm-sage); color: #fff; }
+.product-flag.online-only { background: var(--lm-sky); color: var(--lm-brown-deep); }
+
+/* ---------- Product page ---------- */
+.product-prices .current-price span,
+.product-price {
+  color: var(--lm-sage-deep);
+}
+.product-information,
+.tabs {
+  background: #fff;
+  border: 1px solid var(--lm-line);
+  border-radius: var(--lm-radius);
+  box-shadow: var(--lm-shadow-sm);
+}
+.product-cover img,
+.images-container .product-cover {
+  border-radius: var(--lm-radius);
+  box-shadow: var(--lm-shadow-sm);
+}
+.nav-tabs .nav-link.active {
+  color: var(--lm-sage-deep);
+  border-bottom-color: var(--lm-sage);
+}
+.product-features dl.data-sheet dt.name,
+.product-information li {
+  color: var(--lm-brown);
+}
+
+/* ---------- Reassurance / promise blocks ---------- */
+.block-reassurance {
+  background: var(--lm-sand);
+  border-radius: var(--lm-radius);
+  border: 1px solid var(--lm-line);
+}
+.block-reassurance li {
+  border-color: var(--lm-line);
+}
+.block-reassurance span { color: var(--lm-brown-deep); }
+
+/* ---------- Hero / homepage banners ---------- */
+.slideshow,
+#carousel,
+.homeslider {
+  border-radius: var(--lm-radius);
+  overflow: hidden;
+  box-shadow: var(--lm-shadow-sm);
+}
+
+/* ---------- Newsletter ---------- */
+.block_newsletter {
+  background: var(--lm-sage);
+  border-radius: var(--lm-radius);
+  color: #fff;
+}
+.block_newsletter p,
+.block_newsletter .h3,
+.block_newsletter h3 { color: #fff; }
+.block_newsletter input[type=email] {
+  border-radius: 999px 0 0 999px;
+  border: none;
+}
+.block_newsletter .btn {
+  background: var(--lm-brown-deep);
+  border-color: var(--lm-brown-deep);
+  border-radius: 0 999px 999px 0;
+}
+
+/* ---------- Footer ---------- */
+.footer-container {
+  background: var(--lm-sand);
+  border-top: 1px solid var(--lm-line);
+  box-shadow: none;
+  color: var(--lm-brown);
+}
+.footer-container li a,
+.footer-container a { color: var(--lm-cocoa); }
+.footer-container li a:hover { color: var(--lm-sage-deep); }
+.footer-container .h3,
+.footer-container h3 { color: var(--lm-brown-deep); }
+
+/* ---------- Forms / inputs ---------- */
+.form-control,
+input.form-control,
+select.form-control,
+textarea.form-control {
+  border: 1px solid var(--lm-line);
+  border-radius: var(--lm-radius-sm);
+  background: #fff;
+  color: var(--lm-brown);
+}
+.form-control:focus {
+  border-color: var(--lm-sage);
+  box-shadow: 0 0 0 3px rgba(167, 194, 163, 0.25);
+}
+
+/* ---------- Cart / checkout accents ---------- */
+.cart-summary,
+.card {
+  border-radius: var(--lm-radius);
+  border: 1px solid var(--lm-line);
+  box-shadow: var(--lm-shadow-sm);
+}
+.checkout .step-title,
+.order-confirmation .card-title { color: var(--lm-brown-deep); }
+
+/* ---------- Breadcrumb ---------- */
+.breadcrumb {
+  background: transparent;
+}
+.breadcrumb li a { color: var(--lm-cocoa); }
+.breadcrumb li::after { color: var(--lm-line); }
+
+/* ---------- Pagination ---------- */
+.pagination .current a,
+.page-item.active .page-link {
+  background: var(--lm-sage);
+  border-color: var(--lm-sage);
+  color: #fff;
+}
+
+/* ---------- Scrollbar accent (supported browsers) ---------- */
+* { scrollbar-color: var(--lm-sage) var(--lm-sand); }
