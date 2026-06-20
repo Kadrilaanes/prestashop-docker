@@ -26,17 +26,17 @@ Header
 }
 
 .btn-primary:active:focus {
-    background: #ffd480;
-    border: 1px solid #ffb31a;
-    color: #fff;
+    background: #48525e;
+    border: 1px solid #48525e;
+    color: #edd288;
 }
 
 .btn-primary:hover,
 .btn-primary.active:hover,
 .btn-primary:active:hover,
 .open>.btn-primary.dropdown-toggle:hover {
-    background-color: #ffb31a;
-    border-color: #cc8800;
+    background-color: #5e6b7b;
+    border-color: #5e6b7b;
 }
 
 .btn-primary.focus,
