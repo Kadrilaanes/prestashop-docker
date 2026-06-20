@@ -316,5 +316,9 @@ textarea.form-control {
    right: 5px;
 }
 
+.product-miniature .product-flags li.product-flag.online-only {
+   top: 11.6rem;
+}
+
 /* ---------- Scrollbar accent (supported browsers) ---------- */
 * { scrollbar-color: var(--lm-sage) var(--lm-sand); }
