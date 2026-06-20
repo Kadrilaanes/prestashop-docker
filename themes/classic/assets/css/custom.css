@@ -22,6 +22,9 @@
   --lm-radius-sm:   10px;
   --lm-shadow:      0 6px 24px rgba(107, 90, 78, 0.10);
   --lm-shadow-sm:   0 2px 10px rgba(107, 90, 78, 0.08);
+
+   --lm-thunder:    #48525e;
+   --lm-gold:       ##edd288;
 }
 
 /* ---------- Base ---------- */
@@ -260,16 +263,16 @@ button.btn-primary:hover,
 
 /* ---------- Footer ---------- */
 .footer-container {
-  background: var(--lm-sand);
+  background: var(--lm-thunder);
   border-top: 1px solid var(--lm-line);
   box-shadow: none;
-  color: var(--lm-brown);
+  color: var(--lm-gold);
 }
 .footer-container li a,
-.footer-container a { color: var(--lm-cocoa); }
-.footer-container li a:hover { color: var(--lm-sage-deep); }
+.footer-container a { color: var(--lm-gold); }
+.footer-container li a:hover { color: var(--lm-gold); }
 .footer-container .h3,
-.footer-container h3 { color: var(--lm-brown-deep); }
+.footer-container h3 { color: var(--lm-gold); }
 
 /* ---------- Forms / inputs ---------- */
 .form-control,
