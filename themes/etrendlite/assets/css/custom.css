@@ -4187,3 +4187,12 @@ body#checkout section.checkout-step .address-item.selected {
 #stores .page-stores .store-item {
 	border: 1px solid #e1e1e1;
 }
+
+/* Little Merlins custom branding */
+:root {
+    --lm-cream: #FAF6EF;
+}
+
+body {
+    background: var(--lm-cream);
+}
