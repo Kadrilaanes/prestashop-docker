@@ -97,7 +97,7 @@ h1, h2, h3, h4, h5, h6,
   background: #fff;
   border: 1px solid var(--lm-line);
   border-radius: 999px;
-  padding-left: 16px;
+  padding-left: 36px;
 }
 #search_widget form button[type=submit] .search {
   color: var(--lm-sage-deep);
