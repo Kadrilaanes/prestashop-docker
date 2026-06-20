@@ -13,10 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger shop webhook
+        env:
+          PAYLOAD: '{"ref":"refs/heads/main","pusher":{"name":"${{ github.actor }}"},"commits":[{"id":"${{ github.sha }}"}]}'
         run: |
           curl -s -X POST \
             -H "X-Webhook-Secret: ${{ secrets.WEBHOOK_SECRET }}" \
             -H "Content-Type: application/json" \
-            -d '{"ref":"refs/heads/main","pusher":{"name":"${{ github.actor }}"},"commits":[{"id":"${{ github.sha }}","message":"${{ github.event.head_commit.message }}"}]' \
+            -d "$PAYLOAD" \
             "${{ secrets.WEBHOOK_URL }}" \
             -o /tmp/webhook-response.txt -w "\nHTTP %{http_code}" && cat /tmp/webhook-response.txt
