@@ -311,5 +311,10 @@ textarea.form-control {
   color: #fff;
 }
 
+/* ---------- New code ---------- */
+.product-flags li.product-flag.online-only {
+   right: 5px;
+}
+
 /* ---------- Scrollbar accent (supported browsers) ---------- */
 * { scrollbar-color: var(--lm-sage) var(--lm-sand); }
