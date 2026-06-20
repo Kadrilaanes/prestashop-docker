@@ -94,6 +94,19 @@ if ($resetExit !== 0) {
 exec("cd " . escapeshellarg(REPO_PATH) . " && git log --oneline -1 2>&1", $shaOut, $shaExit);
 $log[] = "Now at: " . ($shaOut[0] ?? 'unknown');
 
+// ─── Copy custom.css from repo to PrestaShop theme dir (bypasses virtiofs cache) ─
+// The repo updates /repo/themes/etrendlite/assets/css/custom.css via git reset,
+// but a separate bind mount for the same file can show stale content on macOS
+// virtiofs. So we copy the file directly into the Docker volume instead.
+$log[] = "--- COPY CUSTOM.CSS ---";
+exec("mkdir -p /var/www/html/themes/etrendlite/assets/css 2>&1", $mkdirOut, $mkdirExit);
+exec("cp /repo/themes/etrendlite/assets/css/custom.css /var/www/html/themes/etrendlite/assets/css/custom.css 2>&1", $cpOut, $cpExit);
+if ($cpExit === 0) {
+    $log[] = "custom.css copied to volume";
+} else {
+    $log[] = "WARNING: cp failed (code {$cpExit}): " . implode(" ", $cpOut);
+}
+
 // ─── Bump CSS version in MySQL ────────────────────────────────────────────────
 $log[] = "--- BUMP CSS VERSION ---";
 try {
