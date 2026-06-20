@@ -533,7 +533,7 @@ Header
 
 #header .header-navfullwidth {
     display: block;
-    background: #051829;
+    background: #48525e;
     float: left;
     width: 100%;
     clear: both;
@@ -4071,7 +4071,7 @@ body#checkout section.checkout-step.-complete:first-of-type .step-title {
 
 #header .top-menu a[data-depth="0"]:hover,
 #header a:hover {
-    color: #333333;
+    color: #dfb030;
 }
 
 #products .up .btn-secondary {
