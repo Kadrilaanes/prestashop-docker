@@ -18,6 +18,7 @@ jobs:
         run: |
           curl -s -X POST \
             -H "X-Webhook-Secret: ${{ secrets.WEBHOOK_SECRET }}" \
+            -H "X-GitHub-Event: push" \
             -H "Content-Type: application/json" \
             -d "$PAYLOAD" \
             "${{ secrets.WEBHOOK_URL }}" \
