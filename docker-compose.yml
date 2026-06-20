@@ -48,7 +48,9 @@ services:
       ADMIN_PASSWD: "changeme123"
     volumes:
       - prestashop_data:/var/www/html
-      - ./themes/classic/assets/css/custom.css:/var/www/html/themes/classic/assets/css/custom.css:ro
+      - ./themes/etrendlite/assets/css/custom.css:/var/www/html/themes/etrendlite/assets/css/custom.css:ro
+      # Keep classic theme's custom.css available for reference (no bind mount)
+      - /Users/claude/prestashop-docker:/repo:rw
 
 volumes:
   mysql_data:
