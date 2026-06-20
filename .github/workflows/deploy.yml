@@ -1,0 +1,22 @@
+name: Deploy to Shop
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    types: [closed]
+    branches: [main]
+
+jobs:
+  deploy:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger shop webhook
+        run: |
+          curl -s -X POST \
+            -H "X-Webhook-Secret: ${{ secrets.WEBHOOK_SECRET }}" \
+            -H "Content-Type: application/json" \
+            -d '{"ref":"refs/heads/main","pusher":{"name":"${{ github.actor }}"},"commits":[{"id":"${{ github.sha }}","message":"${{ github.event.head_commit.message }}"}]' \
+            "${{ secrets.WEBHOOK_URL }}" \
+            -o /tmp/webhook-response.txt -w "\nHTTP %{http_code}" && cat /tmp/webhook-response.txt
